@@ -14,6 +14,7 @@ defmodule SignDict.Entry do
   schema "entries" do
     field :text, :string
     field :description, :string
+    field :alternative_descriptions, {:array, :string}
     field :type, :string
     field :url, :string, virtual: true
     field :deleges_updated_at, :utc_datetime
