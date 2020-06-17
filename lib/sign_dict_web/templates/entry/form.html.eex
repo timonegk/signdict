@@ -12,6 +12,13 @@
   </div>
 
   <div class="o-form-element">
+    <%= label f, :alternative_texts, gettext("entry.alternative_texts"), class: "c-label" %>
+    <%= text_input f, :alternative_texts, class: "c-field #{class_for_error(f, :alternative_texts)}",
+        placeholder: gettext("Alternative names, separated by newlines") %>
+    <%= error_tag f, :alternative_texts %>
+  </div>
+
+  <div class="o-form-element">
     <%= label f, :description, gettext("entry.description"), class: "c-label" %>
     <p class="sc-fieldset--hint">
       <%= gettext("If you want to create another entry for another meaning of a word, please describe the meaning in a little bit more detail here.") %>

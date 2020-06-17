@@ -16,6 +16,12 @@
     <div class="o-grid__cell o-grid__cell--width-60@small o-grid__cell--width-100">
 
       <h1 class="so-video-details--headline"><%= @entry.text %></h1>
+      <%= if length(@entry.alternative_texts) > 0 do %>
+        <h3 class="so-video-details--alternative-text">
+          <%= ngettext("Alternative name", "Alternative names", length(@entry.alternative_texts)) %>:
+          <%= String.join(@entry.alternative_texts, ", ") %>
+        </h3>
+      <% end %>
 
       <%= if String.length(@entry.description) > 0 do %>
         <p><%= @entry.description %></p>

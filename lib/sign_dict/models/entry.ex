@@ -13,6 +13,7 @@ defmodule SignDict.Entry do
   @primary_key {:id, SignDict.Permalink, autogenerate: true}
   schema "entries" do
     field :text, :string
+    field :alternative_texts, {:array, :string}
     field :description, :string
     field :alternative_descriptions, {:array, :string}
     field :type, :string
@@ -205,7 +206,7 @@ defmodule SignDict.Entry do
       join: domain in assoc(entry, :domains),
       where:
         domain.domain == ^domain and not is_nil(entry.current_video_id) and
-          ilike(entry.text, ^search_query),
+                                     ilike(entry.text, ^search_query),
       order_by: entry.text
     )
   end

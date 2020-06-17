@@ -1,5 +1,12 @@
 <h1 class="c-heading"><%= gettext("Entry") %>: <%= @entry.text %></h1>
 
+<%= if length(@entry.alternative_texts) > 0 do %>
+  <h3>
+    <%= ngettext("Alternative name", "Alternative names", length(@entry.alternative_texts)) %>:
+    <%= String.join(@entry.alternative_texts, ", ") %>
+  </h3>
+<% end %>
+
 <div class="o-container--small">
   <div class="o-grid">
     <div class="o-grid__cell o-grid__cell--width-30"><strong><%= gettext("entry.description") %></strong></div>
